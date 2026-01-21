@@ -31,4 +31,4 @@ jobs:
       - name: Commit changes back to the repository
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
-          commit_message: task: auto-generate registry file
+          commit_message: "workflow: auto-generate registry file"
