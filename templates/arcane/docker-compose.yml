@@ -1,0 +1,48 @@
+
+configs:
+    arcane-ts-serve:
+        content: |
+            {"TCP":{"443":{"HTTPS":true}},"Web":{"$${TS_CERT_DOMAIN}:443":{"Handlers":{"/":{"Proxy":"http://127.0.0.1:3552"}}}}}
+
+services:
+    arcane:
+        image: ghcr.io/getarcaneapp/arcane:latest
+        container_name: arcane
+        # ports:
+        #   - '3552:3552'
+        volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+        - ./arcane-data:/app/data
+        - /docker-containers:/app/data/projects
+        environment:
+        - APP_URL=http://localhost:3552
+        - PUID=1000
+        - PGID=1000
+        - ENCRYPTION_KEY=xxxxxxxxxxxxxxxxxxxxxx
+        - JWT_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxx
+        restart: unless-stopped
+
+        network_mode: service:arcane-ts
+        depends_on:
+            - arcane-ts
+
+    arcane-ts:
+        image: tailscale/tailscale:latest
+        container_name: arcane-ts
+        hostname: arcane
+        environment:
+            - TS_AUTHKEY=xxxxxxxxxxxxxxxxxxxxxxx
+            - TS_SERVE_CONFIG=/config/serve.json
+            - TS_STATE_DIR=/var/lib/tailscale
+        configs:
+            - source: arcane-ts-serve
+              target: /config/serve.json
+        volumes:
+            - ./arcane-ts-data:/var/lib/tailscale
+
+        # devices:
+        #     - /dev/net/tun:/dev/net/tun
+        cap_add:
+            - net_admin
+            # - sys_module
+        restart: unless-stopped
