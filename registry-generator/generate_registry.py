@@ -59,9 +59,9 @@ def populate_templates() -> list[ComposeTemplate]:
                         description=template_dir.name,
                         version="1.0.0",
                         author=REPOSITORY_OWNER,
-                        compose_url=f"{GITHUB_RAW_URL}/{REPOSITORY_NAME}/templates/{template_dir.name}/{compose_file[0].name}",
-                        env_url=f"{GITHUB_RAW_URL}/{REPOSITORY_NAME}/templates/{template_dir.name}/.env.example",
-                        documentation_url=f"{GITHUB_RAW_URL}/{REPOSITORY_NAME}/templates/{template_dir.name}/README.md",
+                        compose_url=f"{GITHUB_RAW_URL}/{REPOSITORY_NAME}/refs/heads/main/templates/{template_dir.name}/{compose_file[0].name}",
+                        env_url=f"{GITHUB_RAW_URL}/{REPOSITORY_NAME}/refs/heads/main/templates/{template_dir.name}/.env.example",
+                        documentation_url=f"{GITHUB_RAW_URL}/{REPOSITORY_NAME}/refs/heads/main/templates/{template_dir.name}/README.md",
                         tags=["app"],
                     )
                 )
