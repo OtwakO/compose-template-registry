@@ -1,0 +1,31 @@
+name: Generate Registry File
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  generate-registry:
+    name: python
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.head_ref }}
+          # Value already defaults to true, but `persist-credentials` is required to push new commits to the repository.
+          persist-credentials: true
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+
+      - name: Set up Python
+        run: uv python install
+    
+      - name: Generate registry file
+        run: uv run ./registry_generator/generate_registry.py
+
+      - name: Commit changes back to the repository
+        uses: stefanzweifel/git-auto-commit-action@v7
