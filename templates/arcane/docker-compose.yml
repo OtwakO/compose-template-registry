@@ -13,8 +13,9 @@ services:
         volumes:
         - /var/run/docker.sock:/var/run/docker.sock
         - ./arcane-data:/app/data
-        - /docker-containers:/app/data/projects
+        - /docker-containers:/docker-containers
         environment:
+        - PROJECTS_DIRECTORY=/docker-containers
         - APP_URL=http://localhost:3552
         - PUID=1000
         - PGID=1000
