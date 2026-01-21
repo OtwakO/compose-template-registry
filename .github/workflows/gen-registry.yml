@@ -25,7 +25,7 @@ jobs:
         run: uv python install
     
       - name: Generate registry file
-        run: uv run ./registry_generator/generate_registry.py
+        run: uv run ./registry-generator/generate_registry.py
 
       - name: Commit changes back to the repository
         uses: stefanzweifel/git-auto-commit-action@v7
