@@ -1,0 +1,23 @@
+{
+    "$schema": "https://registry.getarcane.app/schema.json",
+    "name": "Arcane Registry Template",
+    "description": "Registry for Arcane for docker compose file management",
+    "version": "1.0.0",
+    "author": "test",
+    "url": "https://github.com/test/repo",
+    "templates": [
+        {
+            "id": "test",
+            "name": "test",
+            "description": "test",
+            "version": "1.0.0",
+            "author": "test",
+            "compose_url": "https://raw.githubusercontent.com/test/repo/templates/test/docker-compose.yml",
+            "env_url": "https://raw.githubusercontent.com/test/repo/templates/test/.env.example",
+            "documentation_url": "https://raw.githubusercontent.com/test/repo/templates/test/README.md",
+            "tags": [
+                "app"
+            ]
+        }
+    ]
+}
