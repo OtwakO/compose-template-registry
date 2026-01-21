@@ -11,12 +11,13 @@ jobs:
     name: python
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+
     steps:
       - uses: actions/checkout@v6
         with:
           ref: ${{ github.head_ref }}
-          # Value already defaults to true, but `persist-credentials` is required to push new commits to the repository.
-          persist-credentials: true
 
       - name: Install uv
         uses: astral-sh/setup-uv@v7
@@ -29,3 +30,5 @@ jobs:
 
       - name: Commit changes back to the repository
         uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: task: auto-generate registry file
