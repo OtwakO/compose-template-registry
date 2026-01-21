@@ -6,7 +6,7 @@ from pathlib import Path
 
 REPOSITORY_NAME = os.getenv("GITHUB_REPOSITORY", "test/repo")
 REPOSITORY_OWNER = REPOSITORY_NAME.split("/")[0]
-GITHUB_RAW_URL = "https://raw.githubusercontent.com"
+GITHUB_RAW_URL = f"https://raw.githubusercontent.com/{REPOSITORY_NAME}/refs/heads/main"
 CHECK_CONDITION = ["*compose.y*ml", ".env.example", "README.md"]
 JSON_SCHEMA_URL = "https://registry.getarcane.app/schema.json"
 
@@ -59,9 +59,9 @@ def populate_templates() -> list[ComposeTemplate]:
                         description=template_dir.name,
                         version="1.0.0",
                         author=REPOSITORY_OWNER,
-                        compose_url=f"{GITHUB_RAW_URL}/{REPOSITORY_NAME}/refs/heads/main/templates/{template_dir.name}/{compose_file[0].name}",
-                        env_url=f"{GITHUB_RAW_URL}/{REPOSITORY_NAME}/refs/heads/main/templates/{template_dir.name}/.env.example",
-                        documentation_url=f"{GITHUB_RAW_URL}/{REPOSITORY_NAME}/refs/heads/main/templates/{template_dir.name}/README.md",
+                        compose_url=f"{GITHUB_RAW_URL}/templates/{template_dir.name}/{compose_file[0].name}",
+                        env_url=f"{GITHUB_RAW_URL}/templates/{template_dir.name}/.env.example",
+                        documentation_url=f"{GITHUB_RAW_URL}/templates/{template_dir.name}/README.md",
                         tags=["app"],
                     )
                 )
