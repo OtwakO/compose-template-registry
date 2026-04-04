@@ -14,9 +14,11 @@ services:
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock
             - ./arcane-data:/app/data
-            - /docker-projects:/app/data/projects
+            - /docker-projects:/docker-projects
         environment:
             - APP_URL=https://arcane.airplane-scala.ts.net
+            - PROJECTS_DIRECTORY=/docker-projects
+            - DISK_USAGE_PATH=/docker-projects
             - PUID=1000
             - PGID=1000
             - ENCRYPTION_KEY=xxx
@@ -25,6 +27,7 @@ services:
             - LOG_JSON=false
             - OIDC_ENABLED=false
             - DATABASE_URL=file:data/arcane.db?_pragma=journal_mode(WAL)&_pragma=busy_timeout(2500)&_txlock=immediate
+            - TZ=Asia/Taipei
 
         network_mode: service:arcane-ts
         depends_on:
@@ -35,7 +38,7 @@ services:
         container_name: arcane-ts
         hostname: arcane
         environment:
-            - TS_AUTHKEY=xxx
+            - TS_AUTHKEY=${TS_AUTH_KEY}
             - TS_SERVE_CONFIG=/config/serve.json
             - TS_STATE_DIR=/var/lib/tailscale
         configs:

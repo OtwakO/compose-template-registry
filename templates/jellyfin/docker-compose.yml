@@ -19,6 +19,8 @@ services:
       - type: bind
         source: /media
         target: /media
+    environment:
+      - TZ=Asia/Taipei
     restart: 'unless-stopped'
     network_mode: service:jellyfin-ts
     depends_on:
