@@ -1,0 +1,22 @@
+# Ignore all files and folder
+*
+
+# Re-include all directories
+!*/
+!registry-generator/
+!registry-generator/*
+!.github/
+!.github/**
+
+# Ignore venvs
+**/.venv/
+**/__pycache__/
+
+# Files to include
+!*compose.yml
+!*compose.yaml
+!README.md
+!*.env.example
+!Dockerfile
+!.gitignore
+# !*registry.json
