@@ -1,0 +1,38 @@
+configs:
+    fladder-ts-serve:
+        content: |
+            {"TCP":{"443":{"HTTPS":true}},"Web":{"$${TS_CERT_DOMAIN}:443":{"Handlers":{"/":{"Proxy":"http://127.0.0.1:80"}}}}, "AllowFunnel":{"$${TS_CERT_DOMAIN}:443":false}}
+
+services:
+  fladder:
+    #Use "fladder-rootless" for rootless docker setups, otherwise use "fladder"
+    image: ghcr.io/donutware/fladder:latest
+    # ports:
+    #   - 80:80
+    environment:
+      - BASE_URL=https://server-url #OPTIONAL: Locks the Fladder front-end to a certain jellyfin server
+
+    network_mode: service:fladder-ts
+    depends_on:
+      - fladder-ts
+
+  fladder-ts:
+    image: tailscale/tailscale:latest
+    container_name: fladder-ts
+    hostname: fladder
+    environment:
+      - TS_AUTHKEY=${TS_AUTH_KEY}
+      - TS_SERVE_CONFIG=/config/serve.json
+      - TS_STATE_DIR=/var/lib/tailscale
+    configs:
+      - source: fladder-ts-serve
+        target: /config/serve.json
+    volumes:
+      - ./fladder-ts-data:/var/lib/tailscale
+
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    cap_add:
+      - net_admin
+      # - sys_module
+    restart: unless-stopped
