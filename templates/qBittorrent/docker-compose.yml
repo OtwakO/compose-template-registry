@@ -26,7 +26,7 @@ services:
     container_name: qbittorrent-ts
     hostname: qbittorrent
     environment:
-      - TS_AUTHKEY=tskey-auth-kJVAyk1DiC21CNTRL-4ALzVhv28rCaTK1Ns57rqCx6Yk6STAbR
+      - TS_AUTHKEY=${TS_AUTH_KEY}
       - TS_SERVE_CONFIG=/config/serve.json
       - TS_STATE_DIR=/var/lib/tailscale
     configs:
