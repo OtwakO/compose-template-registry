@@ -7,6 +7,32 @@
   "url": "https://github.com/OtwakO/compose-template-registry",
   "templates": [
     {
+      "id": "qBittorrent",
+      "name": "qBittorrent",
+      "description": "qBittorrent",
+      "version": "1.0.0",
+      "author": "OtwakO",
+      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/qBittorrent/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/qBittorrent/.env.example",
+      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/qBittorrent",
+      "tags": [
+        "app"
+      ]
+    },
+    {
+      "id": "ani-rss",
+      "name": "ani-rss",
+      "description": "ani-rss",
+      "version": "1.0.0",
+      "author": "OtwakO",
+      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/ani-rss/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/ani-rss/.env.example",
+      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/ani-rss",
+      "tags": [
+        "app"
+      ]
+    },
+    {
       "id": "arcane",
       "name": "arcane",
       "description": "arcane",
