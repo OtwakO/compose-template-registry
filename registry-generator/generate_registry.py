@@ -61,7 +61,7 @@ def populate_templates() -> list[ComposeTemplate]:
                         author=REPOSITORY_OWNER,
                         compose_url=f"{GITHUB_RAW_URL}/templates/{template_dir.name}/{compose_file[0].name}",
                         env_url=f"{GITHUB_RAW_URL}/templates/{template_dir.name}/.env.example",
-                        documentation_url=f"https://github.com/{REPOSITORY_OWNER}/{REPOSITORY_NAME}/tree/main/templates/{template_dir.name}",
+                        documentation_url=f"https://github.com/{REPOSITORY_NAME}/tree/main/templates/{template_dir.name}",
                         tags=["app"],
                     )
                 )
