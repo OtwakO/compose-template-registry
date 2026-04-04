@@ -1,0 +1,43 @@
+
+configs:
+    ani-rss-ts-serve:
+        content: |
+            {"TCP":{"443":{"HTTPS":true}},"Web":{"$${TS_CERT_DOMAIN}:443":{"Handlers":{"/":{"Proxy":"http://127.0.0.1:7789"}}}}, "AllowFunnel":{"$${TS_CERT_DOMAIN}:443":false}}
+
+services:
+  ani-rss:
+    image: wushuo894/ani-rss:latest
+    container_name: ani-rss
+    environment:
+      - PUID=0
+      - PGID=0
+      - UMASK=022
+      - SERVER_PORT=7789
+      - CONFIG=/config
+      - TZ=Asia/Taipei
+    volumes:
+      - ./ani-rss-config:/config
+      - /media:/media
+    network_mode: service:ani-rss-ts
+    depends_on:
+      - ani-rss-ts
+
+  ani-rss-ts:
+    image: tailscale/tailscale:latest
+    container_name: ani-rss-ts
+    hostname: ani-rss
+    environment:
+      - TS_AUTHKEY=tskey-auth-kJVAyk1DiC21CNTRL-4ALzVhv28rCaTK1Ns57rqCx6Yk6STAbR
+      - TS_SERVE_CONFIG=/config/serve.json
+      - TS_STATE_DIR=/var/lib/tailscale
+    configs:
+      - source: ani-rss-ts-serve
+        target: /config/serve.json
+    volumes:
+      - ./ani-rss-ts-data:/var/lib/tailscale
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    cap_add:
+      - net_admin
+        # - sys_module
+    restart: unless-stopped
