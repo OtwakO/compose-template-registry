@@ -19,8 +19,8 @@ services:
             - APP_URL=https://arcane.airplane-scala.ts.net
             - PUID=1000
             - PGID=1000
-            - ENCRYPTION_KEY=44294ffbd55ed71f0427ee81226181b906e9adafbe9e669a5f866a57e85ff134
-            - JWT_SECRET=a8c0892b6aa2acd0c3e52bd68d121d856975726ac184e51efccc7c99b172a69d
+            - ENCRYPTION_KEY=xxx
+            - JWT_SECRET=xxx
             - LOG_LEVEL=info
             - LOG_JSON=false
             - OIDC_ENABLED=false
@@ -35,7 +35,7 @@ services:
         container_name: arcane-ts
         hostname: arcane
         environment:
-            - TS_AUTHKEY=
+            - TS_AUTHKEY=xxx
             - TS_SERVE_CONFIG=/config/serve.json
             - TS_STATE_DIR=/var/lib/tailscale
         configs:

@@ -37,7 +37,7 @@ class RegistryStruct:
 def generate_registry_file(registry_path: Path, registry: RegistryStruct):
     json_schema = {"$schema": JSON_SCHEMA_URL, **dataclasses.asdict(registry)}
     with open(registry_path, "w") as f:
-        json.dump(json_schema, f, indent=4)
+        json.dump(json_schema, f, indent=2)
 
 
 def populate_templates() -> list[ComposeTemplate]:
@@ -61,7 +61,7 @@ def populate_templates() -> list[ComposeTemplate]:
                         author=REPOSITORY_OWNER,
                         compose_url=f"{GITHUB_RAW_URL}/templates/{template_dir.name}/{compose_file[0].name}",
                         env_url=f"{GITHUB_RAW_URL}/templates/{template_dir.name}/.env.example",
-                        documentation_url=f"{GITHUB_RAW_URL}/templates/{template_dir.name}/README.md",
+                        documentation_url=f"{GITHUB_RAW_URL}/templates/{template_dir.name}",
                         tags=["app"],
                     )
                 )
