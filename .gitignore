@@ -15,8 +15,8 @@
 # Files to include
 !*compose.yml
 !*compose.yaml
-!README.md
-!*.env.example
 !Dockerfile
 !.gitignore
+!README.md
+!*.env.example
 # !*registry.json
