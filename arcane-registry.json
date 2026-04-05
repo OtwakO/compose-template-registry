@@ -46,6 +46,19 @@
       ]
     },
     {
+      "id": "librespeed",
+      "name": "librespeed",
+      "description": "librespeed",
+      "version": "1.0.0",
+      "author": "OtwakO",
+      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/librespeed/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/librespeed/.env.example",
+      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/librespeed",
+      "tags": [
+        "app"
+      ]
+    },
+    {
       "id": "ani-rss",
       "name": "ani-rss",
       "description": "ani-rss",
