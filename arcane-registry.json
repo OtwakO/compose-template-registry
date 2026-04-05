@@ -7,6 +7,19 @@
   "url": "https://github.com/OtwakO/compose-template-registry",
   "templates": [
     {
+      "id": "hister",
+      "name": "hister",
+      "description": "hister",
+      "version": "1.0.0",
+      "author": "OtwakO",
+      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/hister/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/hister/.env.example",
+      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/hister",
+      "tags": [
+        "app"
+      ]
+    },
+    {
       "id": "fladder",
       "name": "fladder",
       "description": "fladder",
