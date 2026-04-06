@@ -1,0 +1,53 @@
+configs:
+  uptime-kuma-ts-serve:
+    content: |
+      {"TCP":{"443":{"HTTPS":true}},"Web":{"$${TS_CERT_DOMAIN}:443":{"Handlers":{"/":{"Proxy":"http://127.0.0.1:3001"}}}}, "AllowFunnel":{"$${TS_CERT_DOMAIN}:443":false}}
+
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:2
+    container_name: uptime-kuma
+    restart: always
+    # ports:
+    #   - "3001:3001"  # This maps the container port "3001" to the host port "3001"
+    volumes:
+      - ./data:/app/data  # Configuring persistent storage
+    environment:
+      - TZ=Asia/Taipei  # Set the timezone (change to your preferred local timezone so monitoring times are the same)
+      # - UMASK=0022  # Set your file permissions manually
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001"]
+      interval: 30s
+      retries: 3
+      start_period: 10s
+      timeout: 5s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+    network_mode: service:uptime-kuma-ts
+    depends_on:
+      - uptime-kuma-ts
+
+  uptime-kuma-ts:
+    image: tailscale/tailscale:latest
+    container_name: uptime-kuma-ts
+    hostname: uptime-kuma
+    environment:
+      - TS_AUTHKEY=${TS_AUTH_KEY}
+      - TS_SERVE_CONFIG=/config/serve.json
+      - TS_STATE_DIR=/var/lib/tailscale
+    configs:
+      - source: uptime-kuma-ts-serve
+        target: /config/serve.json
+    volumes:
+      - ./uptime-kuma-ts-data:/var/lib/tailscale
+
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    cap_add:
+      - net_admin
+      # - sys_module
+    restart: unless-stopped
