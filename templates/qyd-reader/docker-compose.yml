@@ -14,7 +14,9 @@ services:
       # REQUIRED: Mount and override with your configuration file
       - ./conf.yml:/app/conf.yml
       # OPTIONAL: Mount storage for local books/covers if needed
-      - ./data:/app
+      - ./data/local:/app/local
+      - ./data/logs:/app/logs
+      - ./data/storage:/app/storage
       # OPTIONAL: Mount database for persistent data if needed ! MUST CREATE A .DB FILE FIRST !
       - ./qyd-reader.db:/app/read.db
     environment:
