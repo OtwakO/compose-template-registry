@@ -7,14 +7,14 @@
   "url": "https://github.com/OtwakO/compose-template-registry",
   "templates": [
     {
-      "id": "jellyfin",
-      "name": "jellyfin",
-      "description": "jellyfin",
+      "id": "hister",
+      "name": "hister",
+      "description": "hister",
       "version": "1.0.0",
       "author": "OtwakO",
-      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/jellyfin/docker-compose.yml",
-      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/jellyfin/.env.example",
-      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/jellyfin",
+      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/hister/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/hister/.env.example",
+      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/hister",
       "tags": [
         "app"
       ]
@@ -33,19 +33,6 @@
       ]
     },
     {
-      "id": "qBittorrent",
-      "name": "qBittorrent",
-      "description": "qBittorrent",
-      "version": "1.0.0",
-      "author": "OtwakO",
-      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/qBittorrent/docker-compose.yml",
-      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/qBittorrent/.env.example",
-      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/qBittorrent",
-      "tags": [
-        "app"
-      ]
-    },
-    {
       "id": "fladder",
       "name": "fladder",
       "description": "fladder",
@@ -59,14 +46,40 @@
       ]
     },
     {
-      "id": "hister",
-      "name": "hister",
-      "description": "hister",
+      "id": "jellyfin",
+      "name": "jellyfin",
+      "description": "jellyfin",
       "version": "1.0.0",
       "author": "OtwakO",
-      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/hister/docker-compose.yml",
-      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/hister/.env.example",
-      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/hister",
+      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/jellyfin/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/jellyfin/.env.example",
+      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/jellyfin",
+      "tags": [
+        "app"
+      ]
+    },
+    {
+      "id": "uptime-kuma",
+      "name": "uptime-kuma",
+      "description": "uptime-kuma",
+      "version": "1.0.0",
+      "author": "OtwakO",
+      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/uptime-kuma/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/uptime-kuma/.env.example",
+      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/uptime-kuma",
+      "tags": [
+        "app"
+      ]
+    },
+    {
+      "id": "qBittorrent",
+      "name": "qBittorrent",
+      "description": "qBittorrent",
+      "version": "1.0.0",
+      "author": "OtwakO",
+      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/qBittorrent/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/qBittorrent/.env.example",
+      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/qBittorrent",
       "tags": [
         "app"
       ]
@@ -93,19 +106,6 @@
       "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/ani-rss/docker-compose.yml",
       "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/ani-rss/.env.example",
       "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/ani-rss",
-      "tags": [
-        "app"
-      ]
-    },
-    {
-      "id": "uptime-kuma",
-      "name": "uptime-kuma",
-      "description": "uptime-kuma",
-      "version": "1.0.0",
-      "author": "OtwakO",
-      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/uptime-kuma/docker-compose.yml",
-      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/uptime-kuma/.env.example",
-      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/uptime-kuma",
       "tags": [
         "app"
       ]
