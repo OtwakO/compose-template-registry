@@ -1,0 +1,71 @@
+configs:
+  hermes-ts-serve:
+    content: |
+      {"TCP":{"443":{"HTTPS":true}},"Web":{"$${TS_CERT_DOMAIN}:443":{"Handlers":{"/":{"Proxy":"http://127.0.0.1:8642"}}}}, "AllowFunnel":{"$${TS_CERT_DOMAIN}:443":false}}
+
+services:
+  hermes:
+    image: nousresearch/hermes-agent:latest
+    container_name: hermes
+    restart: unless-stopped
+    command: gateway run
+    ports:
+      - :8642
+    volumes:
+      - ./.hermes:/opt/data
+    # Uncomment to forward specific env vars instead of using .env file:
+    # environment:
+    #   - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+    #   - OPENAI_API_KEY=${OPENAI_API_KEY}
+    #   - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+          cpus: "2.0"
+    network_mode: service:hermes-ts
+    depends_on:
+        - hermes-ts
+
+  dashboard:
+    image: nousresearch/hermes-agent:latest
+    container_name: hermes-dashboard
+    restart: unless-stopped
+    command: dashboard --host 0.0.0.0
+    ports:
+      - "9119:9119"
+    volumes:
+      - ./.hermes:/opt/data
+    environment:
+      - GATEWAY_HEALTH_URL=http://hermes:8642
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: "0.5"
+
+    network_mode: service:hermes-ts
+    depends_on:
+      - hermes
+      - hermes-ts
+
+  hermes-ts:
+    image: tailscale/tailscale:latest
+    container_name: hermes-ts
+    hostname: hermes
+    environment:
+      - TS_AUTHKEY=${TS_AUTH_KEY}
+      - TS_SERVE_CONFIG=/config/serve.json
+      - TS_STATE_DIR=/var/lib/tailscale
+    configs:
+      - source: hermes-ts-serve
+        target: /config/serve.json
+    volumes:
+      - ./hermes-ts-data:/var/lib/tailscale
+
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    cap_add:
+      - net_admin
+      # - sys_module
+    restart: unless-stopped
