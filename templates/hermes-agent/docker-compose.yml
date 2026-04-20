@@ -2,6 +2,10 @@ configs:
   hermes-ts-serve:
     content: |
       {"TCP":{"443":{"HTTPS":true}},"Web":{"$${TS_CERT_DOMAIN}:443":{"Handlers":{"/":{"Proxy":"http://127.0.0.1:8642"}}}}, "AllowFunnel":{"$${TS_CERT_DOMAIN}:443":false}}
+  hermes-dashboard-ts-serve:
+    content: |
+      {"TCP":{"443":{"HTTPS":true}},"Web":{"$${TS_CERT_DOMAIN}:443":{"Handlers":{"/":{"Proxy":"http://127.0.0.1:9119"}}}}, "AllowFunnel":{"$${TS_CERT_DOMAIN}:443":false}}
+
 
 services:
   hermes:
@@ -33,7 +37,7 @@ services:
     restart: unless-stopped
     command: dashboard --host 0.0.0.0
     ports:
-      - "9119:9119"
+      - :9119
     volumes:
       - ./.hermes:/opt/data
     environment:
@@ -44,10 +48,10 @@ services:
           memory: 512M
           cpus: "0.5"
 
-    network_mode: service:hermes-ts
+    network_mode: service:hermes-dashboard-ts
     depends_on:
       - hermes
-      - hermes-ts
+      - hermes-dashboard-ts
 
   hermes-ts:
     image: tailscale/tailscale:latest
@@ -62,6 +66,27 @@ services:
         target: /config/serve.json
     volumes:
       - ./hermes-ts-data:/var/lib/tailscale
+
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    cap_add:
+      - net_admin
+      # - sys_module
+    restart: unless-stopped
+
+  hermes-dashboard-ts:
+    image: tailscale/tailscale:latest
+    container_name: hermes-dashboard-ts
+    hostname: hermes-dashboard
+    environment:
+      - TS_AUTHKEY=${TS_AUTH_KEY}
+      - TS_SERVE_CONFIG=/config/serve.json
+      - TS_STATE_DIR=/var/lib/tailscale
+    configs:
+      - source: hermes-dashboard-ts-serve
+        target: /config/serve.json
+    volumes:
+      - ./hermes-dashboard-ts-data:/var/lib/tailscale
 
     devices:
       - /dev/net/tun:/dev/net/tun
