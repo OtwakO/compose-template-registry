@@ -16,7 +16,7 @@ services:
       - ./qbittorrent-config:/config
       - /downloads:/downloads
       - /media:/media # 番剧挂载路径，两侧须保持一致
-
+    restart: unless-stopped
     network_mode: service:qbittorrent-ts
     depends_on:
       - qbittorrent-ts
