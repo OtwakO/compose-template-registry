@@ -1,0 +1,50 @@
+configs:
+  searxng-ts-serve:
+    content: |
+      {"TCP":{"443":{"HTTPS":true}},"Web":{"$${TS_CERT_DOMAIN}:443":{"Handlers":{"/":{"Proxy":"http://127.0.0.1:8080"}}}}, "AllowFunnel":{"$${TS_CERT_DOMAIN}:443":false}}
+
+services:
+  core:
+    container_name: searxng-core
+    image: docker.io/searxng/searxng:${SEARXNG_VERSION:-latest}
+    restart: always
+    # ports:
+    #   - ${SEARXNG_HOST:+${SEARXNG_HOST}:}${SEARXNG_PORT:-8080}:${SEARXNG_PORT:-8080}
+    env_file: ./.env
+    volumes:
+      - ./core-config/:/etc/searxng/:Z
+      - ./core-data:/var/cache/searxng/
+
+    network_mode: service:searxng-ts
+    depends_on:
+      - searxng-ts
+
+  valkey:
+    container_name: searxng-valkey
+    image: docker.io/valkey/valkey:9-alpine
+    command: valkey-server --save 30 1 --loglevel warning
+    restart: always
+    volumes:
+      - ./valkey-data:/data/
+
+
+  searxng-ts:
+    image: tailscale/tailscale:latest
+    container_name: searxng-ts
+    hostname: searxng
+    environment:
+      - TS_AUTHKEY=${TS_AUTH_KEY}
+      - TS_SERVE_CONFIG=/config/serve.json
+      - TS_STATE_DIR=/var/lib/tailscale
+    configs:
+      - source: searxng-ts-serve
+        target: /config/serve.json
+    volumes:
+      - ./searxng-ts-data:/var/lib/tailscale
+
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    cap_add:
+      - net_admin
+      # - sys_module
+    restart: unless-stopped
