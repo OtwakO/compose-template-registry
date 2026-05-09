@@ -7,7 +7,7 @@ services:
   uptime-kuma:
     image: louislam/uptime-kuma:2
     container_name: uptime-kuma
-    restart: always
+    restart: unless-stopped
     # ports:
     #   - "3001:3001"  # This maps the container port "3001" to the host port "3001"
     volumes:
