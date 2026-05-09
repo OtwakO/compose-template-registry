@@ -18,6 +18,7 @@ services:
     volumes:
       - ./ani-rss-config:/config
       - /media:/media
+    restart: unless-stopped
     network_mode: service:ani-rss-ts
     depends_on:
       - ani-rss-ts
