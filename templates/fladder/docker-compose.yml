@@ -9,6 +9,7 @@ services:
     image: ghcr.io/donutware/fladder:latest
     # ports:
     #   - 80:80
+    restart: unless-stopped
     environment:
       - BASE_URL=https://server-url #OPTIONAL: Locks the Fladder front-end to a certain jellyfin server
 
