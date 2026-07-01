@@ -1,0 +1,38 @@
+configs:
+  openwebui-ts-serve:
+    content: |
+      {"TCP":{"443":{"HTTPS":true}},"Web":{"$${TS_CERT_DOMAIN}:443":{"Handlers":{"/":{"Proxy":"http://127.0.0.1:8080"}}}}, "AllowFunnel":{"$${TS_CERT_DOMAIN}:443":false}}
+
+services:
+  openwebui:
+    image: ghcr.io/open-webui/open-webui:main
+    # ports:
+    #   - "3000:8080"
+    volumes:
+      - ./open-webui-data:/app/backend/data
+
+    network_mode: service:openwebui-ts
+    depends_on:
+      - openwebui-ts
+    restart: unless-stopped
+
+  openwebui-ts:
+    image: tailscale/tailscale:latest
+    container_name: openwebui-ts
+    hostname: openwebui
+    environment:
+      - TS_AUTHKEY=${TS_AUTH_KEY}
+      - TS_SERVE_CONFIG=/config/serve.json
+      - TS_STATE_DIR=/var/lib/tailscale
+    configs:
+      - source: openwebui-ts-serve
+        target: /config/serve.json
+    volumes:
+      - ./openwebui-ts-data:/var/lib/tailscale
+
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    cap_add:
+      - net_admin
+      # - sys_module
+    restart: unless-stopped
