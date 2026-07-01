@@ -7,58 +7,6 @@
   "url": "https://github.com/OtwakO/compose-template-registry",
   "templates": [
     {
-      "id": "jellyfin",
-      "name": "jellyfin",
-      "description": "jellyfin",
-      "version": "1.0.0",
-      "author": "OtwakO",
-      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/jellyfin/docker-compose.yml",
-      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/jellyfin/.env.example",
-      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/jellyfin",
-      "tags": [
-        "app"
-      ]
-    },
-    {
-      "id": "hermes-agent",
-      "name": "hermes-agent",
-      "description": "hermes-agent",
-      "version": "1.0.0",
-      "author": "OtwakO",
-      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/hermes-agent/docker-compose.yml",
-      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/hermes-agent/.env.example",
-      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/hermes-agent",
-      "tags": [
-        "app"
-      ]
-    },
-    {
-      "id": "searxng",
-      "name": "searxng",
-      "description": "searxng",
-      "version": "1.0.0",
-      "author": "OtwakO",
-      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/searxng/docker-compose.yml",
-      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/searxng/.env.example",
-      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/searxng",
-      "tags": [
-        "app"
-      ]
-    },
-    {
-      "id": "qyd-reader",
-      "name": "qyd-reader",
-      "description": "qyd-reader",
-      "version": "1.0.0",
-      "author": "OtwakO",
-      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/qyd-reader/docker-compose.yml",
-      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/qyd-reader/.env.example",
-      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/qyd-reader",
-      "tags": [
-        "app"
-      ]
-    },
-    {
       "id": "qBittorrent",
       "name": "qBittorrent",
       "description": "qBittorrent",
@@ -72,53 +20,14 @@
       ]
     },
     {
-      "id": "fladder",
-      "name": "fladder",
-      "description": "fladder",
+      "id": "arcane",
+      "name": "arcane",
+      "description": "arcane",
       "version": "1.0.0",
       "author": "OtwakO",
-      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/fladder/docker-compose.yml",
-      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/fladder/.env.example",
-      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/fladder",
-      "tags": [
-        "app"
-      ]
-    },
-    {
-      "id": "cloudflare-bypass",
-      "name": "cloudflare-bypass",
-      "description": "cloudflare-bypass",
-      "version": "1.0.0",
-      "author": "OtwakO",
-      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/cloudflare-bypass/docker-compose.yml",
-      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/cloudflare-bypass/.env.example",
-      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/cloudflare-bypass",
-      "tags": [
-        "app"
-      ]
-    },
-    {
-      "id": "hister",
-      "name": "hister",
-      "description": "hister",
-      "version": "1.0.0",
-      "author": "OtwakO",
-      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/hister/docker-compose.yml",
-      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/hister/.env.example",
-      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/hister",
-      "tags": [
-        "app"
-      ]
-    },
-    {
-      "id": "librespeed",
-      "name": "librespeed",
-      "description": "librespeed",
-      "version": "1.0.0",
-      "author": "OtwakO",
-      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/librespeed/docker-compose.yml",
-      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/librespeed/.env.example",
-      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/librespeed",
+      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/arcane/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/arcane/.env.example",
+      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/arcane",
       "tags": [
         "app"
       ]
@@ -137,6 +46,32 @@
       ]
     },
     {
+      "id": "searxng",
+      "name": "searxng",
+      "description": "searxng",
+      "version": "1.0.0",
+      "author": "OtwakO",
+      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/searxng/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/searxng/.env.example",
+      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/searxng",
+      "tags": [
+        "app"
+      ]
+    },
+    {
+      "id": "jellyfin",
+      "name": "jellyfin",
+      "description": "jellyfin",
+      "version": "1.0.0",
+      "author": "OtwakO",
+      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/jellyfin/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/jellyfin/.env.example",
+      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/jellyfin",
+      "tags": [
+        "app"
+      ]
+    },
+    {
       "id": "ani-rss",
       "name": "ani-rss",
       "description": "ani-rss",
@@ -145,6 +80,19 @@
       "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/ani-rss/docker-compose.yml",
       "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/ani-rss/.env.example",
       "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/ani-rss",
+      "tags": [
+        "app"
+      ]
+    },
+    {
+      "id": "qyd-reader",
+      "name": "qyd-reader",
+      "description": "qyd-reader",
+      "version": "1.0.0",
+      "author": "OtwakO",
+      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/qyd-reader/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/qyd-reader/.env.example",
+      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/qyd-reader",
       "tags": [
         "app"
       ]
@@ -163,14 +111,79 @@
       ]
     },
     {
-      "id": "arcane",
-      "name": "arcane",
-      "description": "arcane",
+      "id": "hister",
+      "name": "hister",
+      "description": "hister",
       "version": "1.0.0",
       "author": "OtwakO",
-      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/arcane/docker-compose.yml",
-      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/arcane/.env.example",
-      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/arcane",
+      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/hister/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/hister/.env.example",
+      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/hister",
+      "tags": [
+        "app"
+      ]
+    },
+    {
+      "id": "hermes-agent",
+      "name": "hermes-agent",
+      "description": "hermes-agent",
+      "version": "1.0.0",
+      "author": "OtwakO",
+      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/hermes-agent/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/hermes-agent/.env.example",
+      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/hermes-agent",
+      "tags": [
+        "app"
+      ]
+    },
+    {
+      "id": "librespeed",
+      "name": "librespeed",
+      "description": "librespeed",
+      "version": "1.0.0",
+      "author": "OtwakO",
+      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/librespeed/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/librespeed/.env.example",
+      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/librespeed",
+      "tags": [
+        "app"
+      ]
+    },
+    {
+      "id": "open-webui",
+      "name": "open-webui",
+      "description": "open-webui",
+      "version": "1.0.0",
+      "author": "OtwakO",
+      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/open-webui/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/open-webui/.env.example",
+      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/open-webui",
+      "tags": [
+        "app"
+      ]
+    },
+    {
+      "id": "cloudflare-bypass",
+      "name": "cloudflare-bypass",
+      "description": "cloudflare-bypass",
+      "version": "1.0.0",
+      "author": "OtwakO",
+      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/cloudflare-bypass/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/cloudflare-bypass/.env.example",
+      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/cloudflare-bypass",
+      "tags": [
+        "app"
+      ]
+    },
+    {
+      "id": "fladder",
+      "name": "fladder",
+      "description": "fladder",
+      "version": "1.0.0",
+      "author": "OtwakO",
+      "compose_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/fladder/docker-compose.yml",
+      "env_url": "https://raw.githubusercontent.com/OtwakO/compose-template-registry/refs/heads/main/templates/fladder/.env.example",
+      "documentation_url": "https://github.com/OtwakO/compose-template-registry/tree/main/templates/fladder",
       "tags": [
         "app"
       ]
