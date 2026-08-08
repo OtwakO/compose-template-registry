@@ -11,6 +11,9 @@ services:
     # ports:
     #   - "4444:4444"
     restart: unless-stopped
+    entrypoint: >
+      sh -c "apk add --no-cache bash && curl -fsSL https://github.com/lexiforest/curl-impersonate/releases/download/v2.1.0/curl-impersonate-v2.1.0.x86_64-linux-musl.tar.gz
+      | tar -xz -C /usr/local/bin || true && exec /entrypoint.sh"
     environment:
       # Leave both unset only for trusted local/LAN use. If this instance is
       # reachable from the internet, SET A PASSWORD: an unlocked instance lets
