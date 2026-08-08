@@ -6,6 +6,7 @@ configs:
 services:
   degoog:
     image: ghcr.io/degoog-org/degoog:latest
+    container_name: degoog
     volumes:
       - ./data:/app/data
     # ports:
